@@ -17,7 +17,7 @@ let read_request ( clientReader : StreamReader ) = async {
 }
 
 let policy_server sourceIp = 
-    let policy = File.ReadAllText("ClientAccessPolicy.xml")
+    let policy = File.ReadAllText(PolicyFileResponse)
     let server = new TcpListener(IPAddress.Parse(sourceIp), 943)
     server.Start()
     printfn "server started on ip %s" sourceIp
