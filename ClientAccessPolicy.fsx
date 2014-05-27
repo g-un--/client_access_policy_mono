@@ -31,7 +31,6 @@ let policy_server sourceIp =
             printfn "%s" request
             match request = PolicyRequest with
             | true -> 
-                printfn "ma-ta are cratima"
                 use writer = new StreamWriter(client.GetStream())
                 writer.AutoFlush <- true
                 do! writer.WriteAsync(policy).ContinueWith(fun t-> ()) |> Async.AwaitTask
